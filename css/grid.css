@@ -60,12 +60,31 @@ header{
     text-decoration: none;
     color: #24292f;
 }
+.autenticacao a:hover{
+    color: white;
+}
+.autenticacao .botao:hover{
+    background: #626262;
+    
+}
+
 .autenticacao .botao {
     border-radius: 30px;
     padding: 10px 35px;
     margin: 10px;
     background: #4faddb;
     text-align: center;
+}
+.menu-toggle{
+    width: 45px;
+    height: 48px;
+    z-index: 100;
+    background-color: #5f5f5f;
+    color: white;
+    margin-top: 12px;
+    position: absolute;
+    right: 25px;
+    display: none;
 }
 
 header{
@@ -86,6 +105,7 @@ aside{
     margin-left: 24px;
     padding: 20px;
     border-radius: 5px;
+    padding-top: 45px;
 }
 aside .foto{
     width: 100px;
@@ -157,6 +177,12 @@ main{
 footer{ 
     grid-area: rodape;
 }
+.menu-toggle{
+    grid-area: toggle;
+}
+.logo{
+    grid-area: logo;
+}
 body{ 
     display: grid;
     min-height: 100vh;
@@ -170,13 +196,21 @@ body{
 }
 @media(max-width: 700px){
     body{ 
-        grid-template-columns: 1fr;
-        grid-template-rows: 80px 1fr 1fr 100px;
+        grid-template-columns: 100%;
+        grid-template-rows: 80px auto 1fr 100px;
+        grid-gap: 0px;
         grid-template-areas: 
         'cabecalho'
         'navegacao'
         'conteudo'
         'rodape';
+    }
+    header{
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+            'logo toggle';
     }
     .menu{
         display: none;
@@ -187,6 +221,19 @@ body{
     }
     section{
         margin-right: 0px;
+    }
+    .autenticacao{
+        display: none;
+    }
+    aside, section{
+        border-radius: 0px;
+    }
+    .menu-toggle{
+        display: block;
+    }
+    .logo{
+        justify-content: inherit;
+        margin-left: 20px;
     }
 }
 /* Fim Grid Layout*/
